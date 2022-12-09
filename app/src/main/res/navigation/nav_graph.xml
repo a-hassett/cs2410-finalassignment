@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeListFragment">
+
+    <fragment
+        android:id="@+id/homeListFragment"
+        android:name="com.allykh.finalassignment.HomeListFragment"
+        android:label="fragment_home_list"
+        tools:layout="@layout/fragment_home_list" >
+        <action
+            android:id="@+id/action_homeListFragment_to_drawFragment"
+            app:destination="@id/drawFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drawFragment"
+        android:name="com.allykh.finalassignment.DrawFragment"
+        android:label="fragment_draw"
+        tools:layout="@layout/fragment_draw" >
+        <action
+            android:id="@+id/action_drawFragment_to_homeListFragment"
+            app:destination="@id/homeListFragment" />
+    </fragment>
+</navigation>
