@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user_image" />
-        <!--android:src="@drawable/triangle_shape"-->
+    <!--android:src="@drawable/triangle_shape"-->
 
     <TableLayout
         android:id="@+id/colorGrid"
@@ -347,7 +347,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/squarebutton"

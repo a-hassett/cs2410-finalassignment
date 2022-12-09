@@ -1,19 +1,23 @@
 package com.allykh.finalassignment
 
 //import android.R
+
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.allykh.finalassignment.databinding.FragmentDrawBinding
+import kotlin.math.roundToInt
 
 
 class DrawFragment : Fragment() {
@@ -38,24 +42,55 @@ class DrawFragment : Fragment() {
             shape = ResourcesCompat.getDrawable(resources, R.drawable.circle_shape, null)
         }
         binding.trianglebutton.setOnClickListener{
-            shape = ResourcesCompat.getDrawable(resources, R.drawable.user_image, null)
+            shape = ResourcesCompat.getDrawable(resources, R.drawable.triangle_shape, null)
         }
 
-        val bitmap = Bitmap.createBitmap(390, 390, Bitmap.Config.ARGB_8888)
+
+
+        var bitmap = Bitmap.createBitmap(390, 390, Bitmap.Config.ARGB_8888)
+        var canvas: Canvas = Canvas(bitmap)
+        var color: Int = getResources().getColor(R.color.violet)
+
+        binding.userImageView.setOnTouchListener{ v: View, event ->
+            //Log.i("imageviewandontouchlistener", "imageView1 onTouch")
+            //false
+
+            var x = event.x.roundToInt()
+            var y = event.y.roundToInt()
+            Log.i("coordinates", x.toString() + "," + y.toString())
+
+            shape?.setBounds(x - 10, y - 10, x + 10, y + 10)
+            shape?.colorFilter
+            shape?.let { DrawableCompat.setTint(it, color) }
+            shape?.draw(canvas)
+            binding.userImageView.setImageBitmap(bitmap)
+
+//            val canvasToBitmap: CanvasToBitmap
+//
+//            CanvasToBitmap canvasToBitmap = new CanvasToBitmap(getBaseContext());
+//
+//            Bitmap bitmap = canvasToBitmap.bitmap;
+
+            true
+        }
+
+
+
 
         var index: Int
         var item: Drawable?
 //        var canvas: Canvas =
         //var bitmap: Bitmap = Bitmap(390, 390)
-        var color: Int = ResourcesCompat.getColor(resources, R.color.pink, null)
+        //var color: Int = ResourcesCompat.getColor(resources, R.color.pink, null)
         binding.userImageView.setOnClickListener{
+            //bitmap.setPixel
 //            item = ResourcesCompat.getDrawable(resources, R.drawable.circle_shape, null)
 //            index = userImage.addLayer(shape)
 //            item = userImage.getDrawable(index)
 
             //userImage.addLayer(shape)
             //bitmap = BitmapFactory.decodeResource(resources, R.drawable.user_image)
-            binding.userImageView.setImageBitmap(bitmap)
+            //binding.userImageView.setImageBitmap(bitmap)
 
             //item.setColor
 //            DrawableCompat.setTint(item, color)

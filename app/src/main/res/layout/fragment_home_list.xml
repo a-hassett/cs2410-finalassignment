@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".HomeListFragment">
 
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="match_parent"
+        android:layout_height="11sp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/red"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
@@ -16,7 +24,7 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/topDivider" />
 
     <Button
         android:id="@+id/newButton"
@@ -25,6 +33,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/red"
         android:text="New Drawing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,5 +49,13 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/newButton" />
+
+    <View
+        android:id="@+id/bottomDivider"
+        android:layout_width="match_parent"
+        android:layout_height="11sp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
