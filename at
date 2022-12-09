@@ -1,0 +1,23 @@
+[33mcommit dd0884429621a0565b8095e2787f9526934eaf3d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Alexandra Hassett <allyhassett@gmail.com>
+Date:   Fri Dec 9 00:02:38 2022 -0700
+
+    Added colors and set up drawing page layout
+
+[33mcommit d0b005771a81c1dd7a072ab752958b9243d49c5b[m
+Author: Alexandra Hassett <allyhassett@gmail.com>
+Date:   Thu Dec 8 20:17:26 2022 -0700
+
+    nav graph
+
+[33mcommit a686f473498e293f5124ac96f1281b09558ad178[m
+Author: Alexandra Hassett <allyhassett@gmail.com>
+Date:   Thu Dec 8 19:22:44 2022 -0700
+
+    binding set up
+
+[33mcommit 7557d83be2cf52f62a9db7f9230619578057db34[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Alexandra Hassett <allyhassett@gmail.com>
+Date:   Thu Dec 8 19:16:21 2022 -0700
+
+    created
