@@ -14,12 +14,13 @@ class HomeListFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentHomeListBinding.inflate(inflater, container, false)
 
-        binding.button.setOnClickListener{
+        binding.newButton.setOnClickListener{
             findNavController().navigate(R.id.action_homeListFragment_to_drawFragment)
         }
 
