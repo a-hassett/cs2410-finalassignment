@@ -25,8 +25,5 @@ class HomeListFragment : Fragment() {
         }
 
         return binding.root
-
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_home_list, container, false)
     }
 }
