@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeListFragment_to_drawFragment"
             app:destination="@id/drawFragment" />
+        <action
+            android:id="@+id/action_homeListFragment_self"
+            app:destination="@id/homeListFragment" />
     </fragment>
     <fragment
         android:id="@+id/drawFragment"
