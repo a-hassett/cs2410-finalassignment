@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.allykh.finalassignment.databinding.FragmentHomeListBinding
 
 data class ImageFile(
@@ -16,6 +19,8 @@ data class ImageFile(
 )
 
 class HomeListFragment : Fragment() {
+    private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -26,16 +31,14 @@ class HomeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentHomeListBinding.inflate(inflater, container, false)
-
-        var bitmap = Bitmap.createBitmap(480, 450, Bitmap.Config.ARGB_8888)
-        var drawingList: MutableList<ImageFile> = mutableListOf(ImageFile("First", bitmap))
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         binding.newButton.setOnClickListener{
-            drawingList.add(ImageFile("New Drawing", bitmap))
+            viewModel.add()
             findNavController().navigate(R.id.action_homeListFragment_to_drawFragment)
         }
 
-        binding.drawingList.adapter = DrawingAdapter(drawingList)
+        binding.drawingList.adapter = DrawingAdapter(viewModel, viewModel.newlist)
         binding.drawingList.layoutManager = LinearLayoutManager(activity)
 
         return binding.root

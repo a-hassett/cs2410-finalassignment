@@ -11,12 +11,15 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.allykh.finalassignment.databinding.FragmentDrawBinding
 import kotlin.math.roundToInt
 
 
 class DrawFragment : Fragment() {
+    private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -29,6 +32,7 @@ class DrawFragment : Fragment() {
         val binding = FragmentDrawBinding.inflate(inflater, container, false)
         var shape: Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.square_shape, null)
         var color: Int = getResources().getColor(R.color.black)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         binding.squarebutton.setOnClickListener{
             shape = ResourcesCompat.getDrawable(resources, R.drawable.square_shape, null)
@@ -113,7 +117,8 @@ class DrawFragment : Fragment() {
             color = getResources().getColor(R.color.beige)
         }
 
-        var bitmap = Bitmap.createBitmap(480, 450, Bitmap.Config.ARGB_8888)
+        //var bitmap = Bitmap.createBitmap(480, 450, Bitmap.Config.ARGB_8888)
+        var bitmap: Bitmap = viewModel.currentDrawing.user_image
         var canvas: Canvas = Canvas(bitmap)
 
         binding.userImageView.setOnTouchListener{ v: View, event ->
@@ -132,6 +137,7 @@ class DrawFragment : Fragment() {
 
         binding.savebutton.setOnClickListener{
             Log.i("TAG", binding.titleText.text.toString())
+            viewModel.currentDrawing.title = binding.titleText.text.toString()
 
             // reset shape buttons at bottom of screen to be black
             color = getResources().getColor(R.color.black)
